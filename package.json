@@ -1,0 +1,23 @@
+{
+  "name": "mocktube",
+  "version": "1.0.0",
+  "description": "Mock of YouTube using React",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/d2691p/MockTube.git"
+  },
+  "keywords": [
+    "React",
+    "YouTube"
+  ],
+  "author": "Dominick Painter",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/d2691p/MockTube/issues"
+  },
+  "homepage": "https://github.com/d2691p/MockTube#readme"
+}
