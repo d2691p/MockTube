@@ -19,5 +19,9 @@
   "bugs": {
     "url": "https://github.com/d2691p/MockTube/issues"
   },
-  "homepage": "https://github.com/d2691p/MockTube#readme"
+  "homepage": "https://github.com/d2691p/MockTube#readme",
+  "dependencies": {
+    "react": "^15.3.1",
+    "react-dom": "^15.3.1"
+  }
 }
