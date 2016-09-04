@@ -10,7 +10,7 @@ class SearchBar extends Component {
 
 		//Initialises state, with properties we want to record
 		//State is a plain javascript object on a component
-		this.state = { searchTerm: 'Default Value' };
+		this.state = { searchTerm: '' };
 	}
 
 	render() {
@@ -21,11 +21,18 @@ class SearchBar extends Component {
 			// </div>
 			//<p>Value of the input:</p> {this.state.searchTerm} //Get value of the state
 		
-			<div>
-				<p>value = {this.state.searchTerm}</p>
-				<input onChange={event => this.setState({searchTerm: event.target.value})} />	
+			<div className="search-bar">
+				<input 
+					value={this.state.searchTerm}
+					onChange={event => this.onInputChange(event.target.value)} 
+				/>	
 			</div>
 		);
+	}
+
+	onInputChange(searchTerm){
+		this.setState({searchTerm});
+		this.props.onSearchTermChange(searchTerm);
 	}
 
 }
