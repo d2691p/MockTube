@@ -21,7 +21,7 @@ class App extends Component {
 			selectedVideo: null
 		};
 
-		this.videoSearch('runescape');
+		this.videoSearch('JavaScript React');
 	}
 
 	videoSearch(searchTerm) {
