@@ -1,8 +1,7 @@
-/node_modules
-bundle.js
-npm-debug.log
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
 
-<<<<<<< HEAD
 # Folder config file
 Desktop.ini
 
@@ -48,8 +47,3 @@ Temporary Items
 .apdisk
 
 /node_modules
-=======
-# IntelliJ
-*.iml
-/.idea
->>>>>>> d898ead2cd2c238444ec6f71f43b3116eb5b78d0
