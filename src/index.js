@@ -1,11 +1,14 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-import _ from 'lodash';
 import SearchBar from './components/search_bar';
-import VideoList from './components/video_list';
-import VideoDetail from './components/video_detail';
-import YTSearch from 'youtube-api-search';
-const API_KEY = "AIzaSyCQvXTedvQyDzC4aHGhLnNV1TJMwvmyefI";
+import GifList from './components/gif_list';
+import GifDetail from './components/gif_detail';
+import NavBar from './components/navbar';
+import VoteButtons from './components/vote_buttons';
+import request from 'superagent';
+
+const API_KEY = "&api_key=dc6zaTOxFJmzC";
+const ROOT_URL = "http://api.giphy.com/v1/gifs/search?q=";
 
 //Create a component to produce some HTML
 // Class based component is used when we need a concept of STATE
@@ -15,41 +18,55 @@ class App extends Component {
 	constructor(props){
 		super(props);
 
-		//Start as an empty array
+		//Start as an empty array of gifs
 		this.state = { 
-			videos: [], 
-			selectedVideo: null
+			gifs: [], 
+			currentGif: null
 		};
 
-		this.videoSearch('JavaScript React');
+<<<<<<< HEAD
+		//Tell App gifSearch this is bound to App, not onSearchTermChange
+		this.gifSearch = this.gifSearch.bind(this);
+=======
+		this.videoSearch('runescape');
+>>>>>>> parent of f77ff67... Update default search
 	}
 
-	videoSearch(searchTerm) {
-		//Uses the searchTerm on youtube API and populate array
-		YTSearch({key: API_KEY, term: searchTerm}, (videos) => {
-			this.setState({
-				videos: videos,
-				selectedVideo: videos[0]
-			});
-		});
+
+	gifSearch(searchTerm) {
+		//searchTerm cannot have spaces - requires '+'
+		const term = searchTerm.replace(/\s/g, '+');
+		
+		const url = `${ROOT_URL}${term}${API_KEY}`;
+
+		request.get(url, (err, res) => {
+	      	this.setState({ gifs: res.body.data , currentGif: res.body.data[0]});
+	    });
 	}
 
-	//Passing prop videos to VideoList
-	//Lodash ( _ ), throttles the call, prevent constant updates
+	//Passing prop videos to GifList
 	render() {
-		const videoSearch = _.debounce((searchTerm) => {this.videoSearch(searchTerm)}, 300);
 
+		//onSearchTermChange will now be available as this.props
 		return (
 			<div>
-				<SearchBar onSearchTermChange={videoSearch}/>
-				<VideoDetail video={this.state.selectedVideo}/>
-				<VideoList 
-					onVideoSelect={selectedVideo => this.setState({selectedVideo})}
-					videos={this.state.videos} />
+				<div>
+					<NavBar />
+				</div>
+				<div className="container">
+					<div className="row">
+						<SearchBar onSearchTermChange={searchTerm => this.gifSearch(searchTerm)} />
+						<GifDetail liveGif={this.state.currentGif}/>
+						<VoteButtons />
+						<GifList 
+							gifs={this.state.gifs} 
+							onGifSelect={currentGif => this.setState({currentGif})} />
+					</div>
+				</div>
 			</div>
 		);
 	}
 }
 
 //Put generated HTML onto page
-ReactDOM.render(<App />, document.querySelector('.container'));
+ReactDOM.render(<App />, document.querySelector('#app'));

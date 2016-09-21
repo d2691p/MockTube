@@ -25,3 +25,26 @@
 .list-group-item:hover{
 	background-color: #eee;
 }
+
+#current-gif{
+	display:block;
+	width:50%;
+	margin:0 auto;
+	padding:15px;
+}
+
+#gif-list{
+	overflow-y: scroll;
+	width:100%;
+	height:1000px;
+}
+
+.single-gif{
+	display:inline-block;
+	
+}
+
+.single-gif img{
+	width:100%;
+	height:100%;
+}
