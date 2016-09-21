@@ -24,8 +24,12 @@ class App extends Component {
 			currentGif: null
 		};
 
+<<<<<<< HEAD
 		//Tell App gifSearch this is bound to App, not onSearchTermChange
 		this.gifSearch = this.gifSearch.bind(this);
+=======
+		this.videoSearch('runescape');
+>>>>>>> parent of f77ff67... Update default search
 	}
 
 

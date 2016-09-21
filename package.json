@@ -1,7 +1,7 @@
 {
-  "name": "mocktube",
+  "name": "gifsearch",
   "version": "1.0.0",
-  "description": "Mock of YouTube using React",
+  "description": "Search engine for Giphy",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,18 +9,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/d2691p/MockTube.git"
+    "url": "git+https://github.com/d2691p/GiphySearch.git"
   },
-  "keywords": [
-    "React",
-    "YouTube"
-  ],
   "author": "Dominick Painter",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/d2691p/MockTube/issues"
-  },
-  "homepage": "https://github.com/d2691p/MockTube#readme",
   "dependencies": {
     "babel": "^6.5.2",
     "babel-cli": "^6.14.0",
@@ -37,7 +29,6 @@
     "react-dom": "^15.3.1",
     "superagent": "^2.3.0",
     "webpack": "^1.13.2",
-    "webpack-dev-server": "^1.15.1",
-    "youtube-api-search": "0.0.5"
+    "webpack-dev-server": "^1.15.1"
   }
 }
